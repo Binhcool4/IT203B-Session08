@@ -1,0 +1,18 @@
+package Bai3;
+public class ACSetTemperatureCommand implements Command {
+    private AirConditioner ac;
+    private int newTemp;
+    private int oldTemp;
+    public ACSetTemperatureCommand(AirConditioner ac, int newTemp) {
+        this.ac = ac;
+        this.newTemp = newTemp;
+
+    }
+    public void execute() {oldTemp = ac.getTemperature();
+        ac.setTemperature(newTemp);
+    }
+    public void undo() {
+
+        ac.setTemperature(oldTemp);
+    }
+}
